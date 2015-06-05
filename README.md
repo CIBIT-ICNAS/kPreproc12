@@ -1,10 +1,12 @@
-# kPreproc
+# kPreproc12
 
--This toolbox supports flexible and automatic preprocessing of fMRI data. —It transforms dicoms into normalized & smoothed nifti files, and includes several quality assurance steps.
+-These scripts support preprocessing of fMRI data. —They transform dicoms into normalized & smoothed nifti files, and includes several quality assurance steps.
 
 #Dependencies:
 
 -SPM8
+
+-SPM12
 
 -from the wagerlab: SCN_Core_Support and diagnostics toolboxes (http://wagerlab.colorado.edu/tools)
 
@@ -36,6 +38,3 @@ TO RUN:
 - After entering appropriate parameters, reorient all, and select every image for that sub (anat and all functionals for all runs). The script will pause at this point until you interact with the command window.  —Press “1” and then “enter” to confirm that everything looks good — the script will then run for a while and then bring up the next anat img.
 
 - It is generally good practice to check alignment of the anat and funcs (1 per run) after each sub.
-
-
-# kPreproc12
