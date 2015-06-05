@@ -1,27 +1,19 @@
 % kPreproc toolbox
 % ======================================================
 % this is the primary script to access toolbox functions. 
-% see the README file for instructions.
+% see the README for instructions.
 %
 % kurt braunlich 2012
 
-
-% study: valueAcmltr
-% =====================
-% echo time=30
-% slice thickness=4
-% TR=2
-% flip angle=76
-% NOTE -- eastern MNI template.
 %% --------------
-
 clear all;clear mex;clc
+kSpmSwitch(12);
 spm('defaults','fmri');
 spm_jobman('initcfg');
 
 %% Settings:
 % -----------------------------------------
-subs=[4];                                
+subs=[5 7:18];                                
 runs=[1:3];                                  
 
 nDropped=3;                                 % nVolumes dropped from beginning of each run
@@ -47,7 +39,7 @@ q=2;                                        % 1= quit at end to allow sleep
 home=pwd;
 mriFldr='/Volumes/Sarapiqui/valueAcmltr/mriData';
 script_fldr='/Volumes/Sarapiqui/valueAcmltr/scripts';
-preproc_fldr=[ script_fldr '/kPreproc' ];
+preproc_fldr=[ script_fldr '/kPreproc12' ];
 addpath(preproc_fldr);
 
 tic
@@ -63,9 +55,9 @@ b_batch_stc(subs,runs,mriFldr,nFiles,refSlice,sliceOrder,TR,nSlices,TA)
 disp('stc done')
 close all
 
-% MC (estimate and reslice)
+%% MC (estimate and reslice)
 % -----------------------------------------
-c_batch_mc(subs,runs,mriFldr,nFiles,0)
+c_batch_mc(subs,runs,mriFldr,nFiles)
 disp('mc done')
 
 %% coregistration
@@ -84,9 +76,9 @@ f_batch_create_maskedAnat(subs,mriFldr);
 disp('skull done')
 
 %% deformation: anatomical
-% -----------------------------------------
+% % -----------------------------------------
 g_batch_deformAnat(subs,runs,mriFldr);
-disp('seg anat done')
+disp('deform anat done')
 
 %% deformation:  functional 
 % -----------------------------------------
@@ -100,6 +92,8 @@ disp('smooth done')
 
 %% quality assessment
 % -----------------------------------------
+kSpmSwitch(8)
+addpath(genpath('/Users/kurtb/Dropbox/kMat/tor/diagnostics'))
 for sub=subs
     for run=runs
         j_kQuality(mriFldr,sub, run)
@@ -107,7 +101,7 @@ for sub=subs
 end
 close all
 disp('quality assessment done')
-
+kSpmSwitch(12)
 %% compress folders
 % -----------------------------------------
 k_batch_zip(subs,runs,mriFldr)

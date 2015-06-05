@@ -7,7 +7,7 @@ clc
 
 
 %% ====== SETTINGS ============================================
-subs=[4];
+subs=[5 7:18];
 mri_fldr='/Volumes/Sarapiqui/valueAcmltr/mriData';
 
 frmt= 'nii'; % 'img' or 'nii'
