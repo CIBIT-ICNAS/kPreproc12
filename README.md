@@ -38,3 +38,4 @@ TO RUN:
 - It is generally good practice to check alignment of the anat and funcs (1 per run) after each sub.
 
 
+# kPreproc12
