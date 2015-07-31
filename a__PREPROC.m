@@ -110,7 +110,7 @@ for sub=subs
     cd(preproc_fldr)
 end
 close all
-disp('quality assessment done')
+disp('quality control done')
 kSpmSwitch(12)
 
 %% compress folders
