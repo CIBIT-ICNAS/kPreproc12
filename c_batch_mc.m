@@ -1,6 +1,6 @@
 
 
-function c_batch_mc(subs,runs,home_path,nFiles,zp)
+function c_batch_mc(subs,runs,home_path,nFiles)
 
 
 for s=1:numel(subs)
@@ -21,9 +21,7 @@ for s=1:numel(subs)
             listG(i).name=[path '/' listG(i).name ',1'];
         end
         
-        if zp==1
-            zip('stc_og',zipList)
-        end
+        
         %%
         matlabbatch{1,1}.spm.spatial.realign.estwrite.data{1,r}={listG.name}';
         
@@ -57,15 +55,15 @@ for s=1:numel(subs)
         movefile([home_path '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/stc/ra*'],...
             [home_path '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/mc'])
         
-        rpFldr=[home_path '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/motion'];
+        rpFldr=[home_path '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/qc'];
         mkdir(rpFldr);
         
         movefile([home_path '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/stc/rp*'],...
-            [home_path '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/motion'])
+            [home_path '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/qc'])
         
         %% plot
         disp(['plot motion for s' num2str(sub) ' run ' num2str(run)])
-        mcFldr=[home_path '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/motion'];
+        mcFldr=[home_path '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/qc'];
         normFldr=[home_path '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/mc'];
         files=filenames([normFldr '/*.nii']);
         file=files(1,:);
