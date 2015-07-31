@@ -1,6 +1,6 @@
 ## kPreproc12
 
-- These scripts support preprocessing of fMRI data. —They transform dicoms into normalized & smoothed nifti files, and include several quality assurance steps.
+- These scripts support preprocessing of fMRI data. —They transform dicoms into normalized & smoothed nifti files, and include several quality control steps.
 
 ###Dependencies:
 
