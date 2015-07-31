@@ -4,7 +4,7 @@
 
 ###Dependencies:
 
-- SPM8
+- SPM8 (for quality control and various convenience functions only)
 
 - SPM12
 
