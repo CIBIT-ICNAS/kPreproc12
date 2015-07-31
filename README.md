@@ -15,7 +15,7 @@
 -kTools: github.com/kbraunlich/kTools
 
 
-#Steps
+##Steps
 Create File Structure
 -edit and run a__makeDirs.m. This will create the necessary file structure in an existing folder.
 
