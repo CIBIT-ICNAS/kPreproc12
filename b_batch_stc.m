@@ -19,7 +19,7 @@ for s=1:numel(subs)
         for i=1:length({list.name})
             list(i).name=[path '/' list(i).name ',1'];
         end
-        matlabbatch{1,1}.spm.temporal.st.scans{1,r}={list.name}';
+        matlabbatch{1}.spm.temporal.st.scans{1,r}={list.name}';
         
        
        
