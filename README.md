@@ -1,8 +1,8 @@
-# kPreproc12
+## kPreproc12
 
 -These scripts support preprocessing of fMRI data. —They transform dicoms into normalized & smoothed nifti files, and include several quality assurance steps.
 
-#Dependencies:
+###Dependencies:
 
 -SPM8
 
@@ -15,7 +15,7 @@
 -kTools: github.com/kbraunlich/kTools
 
 
-##Steps
+###Steps
 Create File Structure
 -edit and run a__makeDirs.m. This will create the necessary file structure in an existing folder.
 
@@ -30,7 +30,7 @@ This is the primary script for the toolbox. It will guide you through manual ali
 TO RUN:
 -open and edit the “settings” section in a__PREPROC.m. For a new study, you might run in cell mode for a single participant, edit 'subs', and then batch the rest.
 
-#Note about manual alignment:
+###Note about manual alignment:
 - SPM is quite good at segmentation and normalization given rough initial alignment (origin on the AC, and proper orientation along planes (sagittal= acpc plane) ). Accordingly, the first thing the script will do is open the SPM gui and load the first anatomical image. (Read the spm manual for how to use it). 
 
 - After entering appropriate parameters, reorient all, and select every image for that sub (anat and all functionals for all runs). The script will then run for a while. You need to press enter in the command window before it brings up the next anat.
