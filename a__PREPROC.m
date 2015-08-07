@@ -72,7 +72,7 @@ disp('coreg done')
 
 %% anatomical segmentation
 % -----------------------------------------
-e_batch_seg(subs,mriFldr,0,seg)
+e_batch_seg(subs,mriFldr,seg)
 disp('seg done')
 
 %% skull strip
