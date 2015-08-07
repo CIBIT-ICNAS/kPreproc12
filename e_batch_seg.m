@@ -4,7 +4,7 @@ script_path=cd;
 
 for s=1:numel(subs)
     sub=subs(s);
-    anat=filenames([mri_fldr '/s' sprintf('%3.3d',sub) '/anat/s' sprintf('%3.3d',sub) '*.nii']);
+    anat=filenames([mri_fldr '/s' sprintf('%3.3d',sub) '/anat/s' sprintf('%3.3d',sub) '*.nii'],'char');
     matlabbatch{1}.spm.spatial.preproc.channel.vols = cellstr(anat);
     matlabbatch{1}.spm.spatial.preproc.channel.biasreg = 0.001;
     matlabbatch{1}.spm.spatial.preproc.channel.biasfwhm = 60;
