@@ -10,7 +10,7 @@
 
 - from the wagerlab: SCN_Core_Support and diagnostics toolboxes (http://wagerlab.colorado.edu/tools)
 
-- spm-u+ from Cyril Pernet: www.sbirc.ed.ac.uk/cyril/downloads
+- spm-u+ from Cyril Pernet: www.sbirc.ed.ac.uk/cyril
 
 - kTools: github.com/kbraunlich/kTools
 
