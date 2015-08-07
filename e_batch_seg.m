@@ -4,8 +4,8 @@ script_path=cd;
 
 for s=1:numel(subs)
     sub=subs(s);
-    anat=dir([mri_fldr '/s' sprintf('%3.3d',sub) '/anat/s' sprintf('%3.3d',sub) '*.nii']);
-    matlabbatch{1}.spm.spatial.preproc.channel.vols = {[mri_fldr '/s' sprintf('%3.3d',sub) '/anat/' anat.name ',1']};
+    anat=filenames([mri_fldr '/s' sprintf('%3.3d',sub) '/anat/s' sprintf('%3.3d',sub) '*.nii']);
+    matlabbatch{1}.spm.spatial.preproc.channel.vols = cellstr(anat);
     matlabbatch{1}.spm.spatial.preproc.channel.biasreg = 0.001;
     matlabbatch{1}.spm.spatial.preproc.channel.biasfwhm = 60;
     matlabbatch{1}.spm.spatial.preproc.channel.write = [0 0];
@@ -36,10 +36,10 @@ for s=1:numel(subs)
     matlabbatch{1}.spm.spatial.preproc.warp.mrf = 1;
     matlabbatch{1}.spm.spatial.preproc.warp.cleanup = 1;
     matlabbatch{1}.spm.spatial.preproc.warp.reg = [0 0.001 0.5 0.05 0.2];
-    matlabbatch{1}.spm.spatial.preproc.warp.affreg = template;
+    matlabbatch{1}.spm.spatial.preproc.warp.affreg = seg.template;
     matlabbatch{1}.spm.spatial.preproc.warp.fwhm = 0;
     matlabbatch{1}.spm.spatial.preproc.warp.samp = 3;
-    matlabbatch{1}.spm.spatial.preproc.warp.write = [1 1];
+    matlabbatch{1}.spm.spatial.preproc.warp.write = seg.saveDeformFields;
     
     spm_jobman('run', matlabbatch);
 end
