@@ -1,12 +1,12 @@
 ## kPreproc12
 
-- These scripts support preprocessing of fMRI data. —They transform dicoms into normalized & smoothed nifti files, and include several quality control steps.
+- These scripts support preprocessing of fMRI data using primarily SPM12. —They transform dicom images into normalized & smoothed nifti files, and include several quality control steps.
 
 ####Dependencies:
 
-- SPM8 (for quality control and various convenience functions only)
-
 - SPM12
+
+- SPM8 (for various quality control and convenience functions only)
 
 - from the wagerlab: SCN_Core_Support and diagnostics toolboxes (http://wagerlab.colorado.edu/tools)
 
