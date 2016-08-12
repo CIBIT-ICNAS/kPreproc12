@@ -13,24 +13,9 @@ for s=1:numel(subs)
    matlabbatch{1}.spm.spatial.coreg.estimate.source = ...
       {[home_path '/s' sprintf('%3.3d',sub) '/r1/mc/' srce.name ',1']};
    %%
-   tmp=[];
-   for r=1:numel(runs)
-      run=runs(r);
-      % just all the images in one cell:
-      % ====================================
-      run_fldr=[home_path '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/mc'];
-      list=dir([run_fldr '/ra*nii']);
-      for i=1:length({list.name})
-         zipList{i}=list(i).name;
-         list(i).name=[run_fldr '/' list(i).name ',1'];
-      end
-      fList=[tmp;{list.name}'];
-      tmp=fList;
-      
-      
-   end
    
-   matlabbatch{1}.spm.spatial.coreg.estimate.other=fList;
+   
+   matlabbatch{1}.spm.spatial.coreg.estimate.other=[];
    
    %%
    matlabbatch{1}.spm.spatial.coreg.estimate.eoptions.cost_fun = 'nmi';
