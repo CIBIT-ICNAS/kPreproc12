@@ -14,8 +14,20 @@ for s=1:numel(subs)
       {[home_path '/s' sprintf('%3.3d',sub) '/r1/mc/' srce.name ',1']};
    %%
    
+   tmp=[];
+   for r=1:numel(runs)
+      run=runs(r);
+      % just all the images in one cell:
+      % ====================================
+      run_fldr=[mriFldr '/s' sprintf('%3.3d',sub) '/r' num2str(run) '/mc'];
+      list=filenames([run_fldr '/ra*nii'],'char');
+      
+      fList=char(tmp,list);
+      tmp=fList;
+      
+   end
    
-   matlabbatch{1}.spm.spatial.coreg.estimate.other=[];
+   matlabbatch{1}.spm.spatial.coreg.estimate.other=fList;
    
    %%
    matlabbatch{1}.spm.spatial.coreg.estimate.eoptions.cost_fun = 'nmi';
