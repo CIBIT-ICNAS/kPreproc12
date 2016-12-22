@@ -33,5 +33,3 @@ TO RUN
 - SPM is quite good at segmentation and normalization given reasonable initial alignment (origin on the AC, and proper orientation along planes (sagittal= acpc plane) ). Accordingly, the first thing the script will do is open the SPM gui and load the first anatomical image. (Read the spm manual for how to use it). 
 
 - After entering appropriate parameters, reorient all, and select every image for that sub (anat and all functionals for all runs). The script will then run for a while. You need to press enter in the command window before it brings up the next anat.
-
-- It is generally good practice to check alignment of the anat and funcs (1 per run) after each sub. --I use mricron.
